@@ -30,7 +30,7 @@ const boardModule = (() => {
     boardArray = ['', '', '', '', '', '', '', '', ''];
   };
 
-  const checkwin = () => {
+  const checkWin = () => {
     const winArrays = [
       [0, 1, 2],
       [3, 4, 5],
@@ -98,5 +98,38 @@ const gamePlay = (() => {
         }
       }
     });
-  }
-})
+  };
+
+  const gameInit = () => {
+    if (playerOneName.value !== '' && playerTwoName.value !== '') {
+      playerOne = playerFactory(playerOneName.value, 'X');
+      playerTwo = playerFactory(playerTwoName.value, 'O');
+      currentPlayer = playerOne;
+      gameRound();
+    }
+  };
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (playerOneName.value !== '' && playerTwoName.value !== '') {
+      gameInit();
+      form.classList.add('hidden');
+      document.querySelector('.place').classList.remove('hidden');
+    } else {
+      window.location.reload();
+    }
+  });
+
+  resetBtn.addEventListener('click', () => {
+    document.querySelector('.game-status').textContent = 'Board ';
+    document.querySelector('#player1').vaule = '';
+    document.querySelector('#player2').value = '';
+    window.location.reload();
+  });
+  return {
+    gameInit,
+  };
+})();
+
+
+gamePlay.gameInit();
