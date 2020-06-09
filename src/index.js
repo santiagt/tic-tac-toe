@@ -61,7 +61,7 @@ const gamePlay = (() => {
   const playerOneName = document.querySelector('#player1');
   const playerTwoName = document.querySelector('#player2');
   const form = document.querySelector('.player-info');
-  const resetBtn = document.getElementById('reset');
+  
   let currentPlayer;
   let playerOne;
   let playerTwo;
@@ -120,12 +120,7 @@ const gamePlay = (() => {
     }
   });
 
-  resetBtn.addEventListener('click', () => {
-    document.querySelector('.game-status').textContent = 'Board ';
-    document.querySelector('#player1').vaule = '';
-    document.querySelector('#player2').value = '';
-    window.location.reload();
-  });
+  
   return {
     gameInit,
   };
