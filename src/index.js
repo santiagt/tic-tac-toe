@@ -44,7 +44,7 @@ const boardModule = (() => {
 
     winArrays.forEach((combo) => {
       if (boardArray[combo[0]]
-        && boradArray[combo[0]] === boardArray[combo[1]]
+        && boardArray[combo[0]] === boardArray[combo[1]]
         && boardArray[combo[0]] === boardArray[combo[2]]) {
           winner = 'current';
         }
@@ -79,7 +79,8 @@ const gamePlay = (() => {
       gameStatus.textContent = 'Board ';
     }
 
-    board.gameBoard.addEventListener('click', (event) => {
+    document.addEventListener('click', (event) => {
+      if (!event.target.matches('.board')) return;
       event.preventDefault();
       const play = currentPlayer.playTurn(board, event.target);
       if (play !== null) {
