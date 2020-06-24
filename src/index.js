@@ -79,7 +79,7 @@ const gamePlay = (() => {
       gameStatus.textContent = 'Board ';
     }
 
-    board.gameBoard.addEventListener('click', (event) => {
+    document.addEventListener('click', (event) => {
       event.preventDefault();
       const play = currentPlayer.playTurn(board, event.target);
       if (play !== null) {
