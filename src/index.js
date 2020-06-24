@@ -98,6 +98,11 @@ const gamePlay = (() => {
         }
       }
     });
+
+    reset.addEventListener('click', () => {
+      board.reset();
+      board.render();
+    });
   };
 
   const gameInit = () => {
@@ -120,17 +125,14 @@ const gamePlay = (() => {
     }
   });
 
-  exit.addEventListener('click', () => {
+  const exit = () => { 
     document.querySelector('.game-status').textContent = 'Board';
     document.querySelector('#player1').value = '';
     document.querySelector('#player2').value = '';
     window.location.reload();
-  });
+  };
 
-  reset.addEventListener('click', () => {
-    board.reset();
-    board.render();
-  });
+  
 
   
   return {
