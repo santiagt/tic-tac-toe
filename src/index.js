@@ -120,6 +120,13 @@ const gamePlay = (() => {
     }
   });
 
+  resetBtn.addEventListener('click', () => {
+    document.querySelector('.game-status').textContent = 'Board';
+    document.querySelector('#player1').value = '';
+    document.querySelector('#player2').value = '';
+    window.location.reload();
+  });
+
   
   return {
     gameInit,
