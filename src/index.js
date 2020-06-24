@@ -120,7 +120,7 @@ const gamePlay = (() => {
     }
   });
 
-  resetBtn.addEventListener('click', () => {
+  reset.addEventListener('click', () => {
     document.querySelector('.game-status').textContent = 'Board';
     document.querySelector('#player1').value = '';
     document.querySelector('#player2').value = '';
