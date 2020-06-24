@@ -79,8 +79,7 @@ const gamePlay = (() => {
       gameStatus.textContent = 'Board ';
     }
 
-    document.addEventListener('click', (event) => {
-      if (!event.target.matches('.board')) return;
+    board.gameBoard.addEventListener('click', (event) => {
       event.preventDefault();
       const play = currentPlayer.playTurn(board, event.target);
       if (play !== null) {
@@ -89,13 +88,13 @@ const gamePlay = (() => {
         const winStatus = board.checkWin();
         if (winStatus === 'Tie') {
           gameStatus.textContent = "It's a tie!";
+          setTimeout(() => { alert("It's a tie!")});
         } else if (winStatus === null) {
           switchTurn();
           gameStatus.textContent = `${currentPlayer.name}'s Turn`;
         } else {
           gameStatus.textContent = `Winner is ${currentPlayer.name}`
-          board.reset();
-          board.render();
+          setTimeout(() => { alert(`Winner is ${currentPlayer.name}`)});
         }
       }
     });
