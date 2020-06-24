@@ -116,8 +116,6 @@ const gamePlay = (() => {
       console.log("game started");
       form.classList.add('hidden');
       document.querySelector('.place').classList.remove('hidden');
-    } else {
-      console.log("reload");
     }
   });
 
