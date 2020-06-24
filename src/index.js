@@ -89,12 +89,16 @@ const gamePlay = (() => {
         if (winStatus === 'Tie') {
           gameStatus.textContent = "It's a tie!";
           setTimeout(() => { alert("It's a tie!")});
+          board.reset();
+          board.render();
         } else if (winStatus === null) {
           switchTurn();
           gameStatus.textContent = `${currentPlayer.name}'s Turn`;
         } else {
           gameStatus.textContent = `Winner is ${currentPlayer.name}`
           setTimeout(() => { alert(`Winner is ${currentPlayer.name}`)});
+          board.reset();
+          board.render();
         }
       }
     });
@@ -113,7 +117,9 @@ const gamePlay = (() => {
     event.preventDefault();
     if (playerOneName.value !== '' && playerTwoName.value !== '') {
       gameInit();
+
       console.log("game started");
+      
       form.classList.add('hidden');
       document.querySelector('.place').classList.remove('hidden');
     }
