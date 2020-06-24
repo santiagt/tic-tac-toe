@@ -113,10 +113,12 @@ const gamePlay = (() => {
     event.preventDefault();
     if (playerOneName.value !== '' && playerTwoName.value !== '') {
       gameInit();
+      console.log("game started");
       form.classList.add('hidden');
       document.querySelector('.place').classList.remove('hidden');
     } else {
       window.location.reload();
+      console.log("reload");
     }
   });
 
